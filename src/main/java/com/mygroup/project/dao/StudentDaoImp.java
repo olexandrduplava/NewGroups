@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,12 +25,14 @@ public class StudentDaoImp implements StudentDao{
         this.sessionFactory = sessionFactory;
     }
 
+    @Transactional
     @Override
     public long save(Student student) {
         sessionFactory.getCurrentSession().save(student);
         return student.getId();
     }
 
+   @Transactional
     @Override
     public Student get(long id) {
         return sessionFactory.getCurrentSession().get(Student.class, id);
@@ -58,6 +61,7 @@ public class StudentDaoImp implements StudentDao{
         session.flush();
     }
 
+    @Transactional
     @Override
     public void delete(long id) {
         Session session = sessionFactory.getCurrentSession();

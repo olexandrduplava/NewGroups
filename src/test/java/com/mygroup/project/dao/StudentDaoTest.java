@@ -18,18 +18,17 @@ public class StudentDaoTest extends TestCase {
         studentDao = applicationContext.getBean(StudentDao.class);
     }
 
-//    @Test
-//    public void testSave() {
-//        Student student = new Student();
-//        student.setId(1L);
-//        student.setFirstName("FIRST1");
-//        student.setLastName("LAST1");
-//        long id = studentDao.save(student);
-//        Student student1 = studentDao.get(id);
-//        assertEquals(student,student1);
-//    }
+    @Test
+    public void testSave() {
+        Student student = new Student("First2","Last2");
+        long id = studentDao.save(student);
+        Student student1 = studentDao.get(id);
+        assertEquals(student,student1);
+        studentDao.delete(student.getId());
+    }
     @Test
     public void testGet() {
+    System.out.println("Student: ");
     }
     @Test
     public void testList() {

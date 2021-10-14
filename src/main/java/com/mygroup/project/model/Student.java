@@ -3,6 +3,7 @@ package com.mygroup.project.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "students")
@@ -31,6 +32,11 @@ public class Student {
     private Group group;
 
     public Student() {
+    }
+
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Long getId() {
@@ -88,11 +94,16 @@ public class Student {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student student = (Student) obj;
+        return Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
     }
+
+
 }

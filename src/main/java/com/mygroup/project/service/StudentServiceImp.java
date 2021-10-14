@@ -20,7 +20,6 @@ public class StudentServiceImp implements StudentService{
         this.studentDao = studentDao;
     }
 
-    @Transactional
     @Override
     public long save(Student student) {
         return studentDao.save(student);
