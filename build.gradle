@@ -12,9 +12,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+//    testImplementation 'junit:junit:4.13.2'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.10'
@@ -43,10 +43,15 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin
     implementation group: 'org.apache.tomcat.maven', name: 'tomcat7-maven-plugin', version: '2.2'
 
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+
+
 }
 
 test {
-    useJUnitPlatform()
+    useTestNG()
+//    useJUnitPlatform()
     testLogging.showStandardStreams = true
     testLogging {
         events "passed", "skipped", "failed"

@@ -19,13 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController {
 
+    private final StudentService studentService;
+
     @Autowired
-    private StudentService studentService;
+    public StudentController(StudentService studentService){
+        this.studentService = studentService;
+    }
+
+// ===============================================================================
+//  https://bushansirgur.in/angular-2-and-spring-mvc-simple-crud-application/
+// ===============================================================================
 
     /*---Add new student---*/
     @PostMapping("/student")
     public ResponseEntity<?> save(@RequestBody Student student) {
-        System.out.println("the json value of student is :::::: "+student);
+        System.out.println("the json value of student is :::::: " + student);
         long id = studentService.save(student);
         return ResponseEntity.ok().body("New Student has been saved with ID:" + id);
     }
@@ -57,4 +65,41 @@ public class StudentController {
         studentService.delete(id);
         return ResponseEntity.ok().body("Student has been deleted successfully.");
     }
+
+// ===============================================================================
+//  Pavlo
+// ===============================================================================
+
+//    @PostMapping("/student/add")
+//    public ResponseEntity<?> insert(@RequestBody Student student) {
+//        System.out.println("Json " + student);
+//        student = studentService.create(student);
+//        return ResponseEntity.ok().body("New author" + student.getId());
+//    }
+//
+//    @GetMapping("/student/{id}")
+//    public ResponseEntity<Student> getById(@PathVariable long id) {
+//        Student student = studentService.readById(id);
+//        return ResponseEntity.ok().body(student);
+//    }
+//
+//    @GetMapping("/student")
+//    public ResponseEntity<List<Student>> getAll(){
+//        List<Student> students = studentService.readAll();
+//        return ResponseEntity.ok(students);
+//    }
+//
+//    @PutMapping("/student/{id}")
+//    public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Student student) {
+//        student.setId(id);
+//        studentService.update(student);
+//        return ResponseEntity.ok("Author updated successfully " + student.getId());
+//    }
+//
+//    @DeleteMapping("/student/{id}")
+//    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+//        studentService.delete(new Student().setId(id));
+//        return ResponseEntity.ok("Author with id " + id + " has been deleted");
+//    }
+
 }

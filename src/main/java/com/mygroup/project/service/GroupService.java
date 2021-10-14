@@ -1,10 +1,12 @@
-package com.mygroup.project.dao;
+package com.mygroup.project.service;
 
 import com.mygroup.project.model.Group;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface GroupDao {
+@Repository
+public interface GroupService {
 
     long save(Group group);
 

@@ -51,7 +51,7 @@ public class AppConfig {
         props.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 
         factoryBean.setHibernateProperties(props);
-        factoryBean.setPackagesToScan("group.project.model");
+        factoryBean.setPackagesToScan("com.mygroup.project.model");
 
         return factoryBean;
     }

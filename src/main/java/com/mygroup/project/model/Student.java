@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 @Table(name = "students")
 public class Student {
 
+    //TODO Create database tables
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

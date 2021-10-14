@@ -1,9 +1,11 @@
 package com.mygroup.project.dao;
 
 import com.mygroup.project.model.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface StudentDao {
 
     long save(Student student);
