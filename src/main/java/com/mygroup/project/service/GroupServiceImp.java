@@ -1,10 +1,8 @@
 package com.mygroup.project.service;
 
 import com.mygroup.project.dao.GroupDao;
-import com.mygroup.project.dao.StudentDao;
 import com.mygroup.project.model.Group;
 
-import com.mygroup.project.model.Student;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

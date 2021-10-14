@@ -2,7 +2,6 @@ package com.mygroup.project.model;
 
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
 
