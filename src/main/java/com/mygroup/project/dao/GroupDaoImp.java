@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 import com.mygroup.project.model.Group;
 import org.hibernate.Session;
@@ -14,26 +15,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class GroupDaoImp implements GroupDao{
+public class GroupDaoImp implements GroupDao {
 
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public GroupDaoImp(SessionFactory sessionFactory){
+    public GroupDaoImp(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
+    @Transactional
     @Override
     public long save(Group group) {
         sessionFactory.getCurrentSession().save(group);
         return group.getId();
     }
 
+    @Transactional
     @Override
     public Group get(long id) {
         return sessionFactory.getCurrentSession().get(Group.class, id);
     }
 
+    @Transactional
     @Override
     public List<Group> list() {
         Session session = sessionFactory.getCurrentSession();
@@ -45,6 +49,7 @@ public class GroupDaoImp implements GroupDao{
         return query.getResultList();
     }
 
+    @Transactional
     @Override
     public void update(long id, Group group) {
         Session session = sessionFactory.getCurrentSession();
@@ -55,6 +60,7 @@ public class GroupDaoImp implements GroupDao{
         session.flush();
     }
 
+    @Transactional
     @Override
     public void delete(long id) {
         Session session = sessionFactory.getCurrentSession();

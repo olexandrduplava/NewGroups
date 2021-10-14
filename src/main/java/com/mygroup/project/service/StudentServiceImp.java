@@ -20,16 +20,19 @@ public class StudentServiceImp implements StudentService{
         this.studentDao = studentDao;
     }
 
+    @Transactional
     @Override
     public long save(Student student) {
         return studentDao.save(student);
     }
 
+    @Transactional
     @Override
     public Student get(long id) {
         return studentDao.get(id);
     }
 
+    @Transactional
     @Override
     public List<Student> list() {
         return studentDao.list();

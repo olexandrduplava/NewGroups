@@ -1,5 +1,7 @@
 package com.mygroup.project.controller;
 
+import com.mygroup.project.model.Group;
+import com.mygroup.project.model.Student;
 import com.mygroup.project.service.GroupService;
 import com.mygroup.project.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 public class GroupController {
@@ -22,6 +26,42 @@ public class GroupController {
     @Autowired
     public GroupController(GroupService groupService){
         this.groupService = groupService;
+    }
+
+    /*---Add new group---*/
+    @PostMapping("/group")
+    public ResponseEntity<?> save(@RequestBody Group group) {
+        System.out.println("the json value of student is :::::: " + group);
+        long id = groupService.save(group);
+        return ResponseEntity.ok().body("New Student has been saved with ID:" + id);
+    }
+
+    /*---Get a group by id---*/
+    @GetMapping("/group/{id}")
+    public ResponseEntity<Group> get(@PathVariable("id") long id) {
+        Group group = groupService.get(id);
+        return ResponseEntity.ok().body(group);
+    }
+
+    /*---get all group---*/
+    @GetMapping("/group")
+    public ResponseEntity<List<Group>> list() {
+        List<Group> groups = groupService.list();
+        return ResponseEntity.ok().body(groups);
+    }
+
+    /*---Update a group by id---*/
+    @PutMapping("/group/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Group group) {
+        groupService.update(id, group);
+        return ResponseEntity.ok().body("Student has been updated successfully.");
+    }
+
+    /*---Delete a group by id---*/
+    @DeleteMapping("/group/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+        groupService.delete(id);
+        return ResponseEntity.ok().body("Group has been deleted successfully.");
     }
 
 }

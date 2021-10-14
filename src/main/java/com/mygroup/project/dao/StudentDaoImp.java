@@ -16,12 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class StudentDaoImp implements StudentDao{
+public class StudentDaoImp implements StudentDao {
 
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public StudentDaoImp(SessionFactory sessionFactory){
+    public StudentDaoImp(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -32,12 +32,13 @@ public class StudentDaoImp implements StudentDao{
         return student.getId();
     }
 
-   @Transactional
+    @Transactional
     @Override
     public Student get(long id) {
         return sessionFactory.getCurrentSession().get(Student.class, id);
     }
 
+    @Transactional
     @Override
     public List<Student> list() {
         Session session = sessionFactory.getCurrentSession();
@@ -49,6 +50,7 @@ public class StudentDaoImp implements StudentDao{
         return query.getResultList();
     }
 
+    @Transactional
     @Override
     public void update(long id, Student student) {
         Session session = sessionFactory.getCurrentSession();

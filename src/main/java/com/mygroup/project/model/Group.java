@@ -1,9 +1,9 @@
 package com.mygroup.project.model;
 
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "groups")
@@ -23,6 +23,10 @@ public class Group {
     private List<Student> students;
 
     public Group() {
+    }
+
+    public Group(String title) {
+        this.title = title;
     }
 
     public Long getId() {
@@ -64,7 +68,10 @@ public class Group {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Group group = (Group) obj;
+        return Objects.equals(title, group.title);
     }
 
     @Override
