@@ -4,7 +4,7 @@ import com.mygroup.project.model.Group;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-//1
+
 @Repository
 public interface GroupService {
 

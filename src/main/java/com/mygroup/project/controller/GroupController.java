@@ -1,6 +1,5 @@
 package com.mygroup.project.controller;
 
-//1
 import com.mygroup.project.service.GroupService;
 import com.mygroup.project.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,6 @@ package com.mygroup.project.dao;
 import com.mygroup.project.model.Group;
 import org.springframework.stereotype.Repository;
 
-//1
 import java.util.List;
 
 @Repository

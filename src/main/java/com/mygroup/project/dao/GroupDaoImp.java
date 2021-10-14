@@ -1,7 +1,7 @@
 package com.mygroup.project.dao;
 
 import java.util.List;
-//1
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;

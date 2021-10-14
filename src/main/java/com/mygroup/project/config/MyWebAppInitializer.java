@@ -1,7 +1,6 @@
 package com.mygroup.project.config;
 
 import com.mygroup.project.config.WebConfig;
-//1
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
