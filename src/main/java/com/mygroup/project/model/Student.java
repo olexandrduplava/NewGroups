@@ -3,7 +3,7 @@ package com.mygroup.project.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
+//1
 @Entity
 @Table(name = "students")
 public class Student {

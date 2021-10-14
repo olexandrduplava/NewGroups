@@ -4,7 +4,7 @@ package com.mygroup.project.model;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-
+//1
 @Entity
 @Table(name = "groups")
 public class Group {

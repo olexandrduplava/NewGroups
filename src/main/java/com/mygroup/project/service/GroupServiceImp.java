@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+//1
 @Service
 @Transactional(readOnly = true)
 public class GroupServiceImp implements GroupDao{
