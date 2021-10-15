@@ -1,11 +1,16 @@
 package com.mygroup.project.service;
 
 import com.mygroup.project.config.AppConfig;
+import com.mygroup.project.model.Student;
 import junit.framework.TestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StudentServiceTest extends TestCase {
 
@@ -18,22 +23,26 @@ public class StudentServiceTest extends TestCase {
     }
 
     @Test
-    public void testSave() {
+    public void testSaveStudentService() {
+
     }
 
     @Test
-    public void testGet() {
+    public void testGetStudentService() {
     }
 
     @Test
-    public void testList() {
+    public void testListStudentService() {
+
     }
 
     @Test
-    public void testUpdate() {
+    public void testUpdateStudentService() {
+
     }
 
     @Test
-    public void testDelete() {
+    public void testDeleteStudentService() {
+
     }
 }

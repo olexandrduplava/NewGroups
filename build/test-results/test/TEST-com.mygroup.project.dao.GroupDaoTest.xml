@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygroup.project.dao.GroupDaoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-10-14T23:13:20" hostname="DESKTOP-AXUENNI" time="0.363">
+<testsuite name="com.mygroup.project.dao.GroupDaoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-10-15T00:03:34" hostname="DESKTOP-AXUENNI" time="0.811">
   <properties/>
-  <testcase name="testDelete on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.335"/>
-  <testcase name="testGet on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.0"/>
-  <testcase name="testList on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.0"/>
-  <testcase name="testSave on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.008"/>
-  <testcase name="testUpdate on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.016"/>
+  <testcase name="testDeleteGroupDao on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.38"/>
+  <testcase name="testGetGroupDao on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.0"/>
+  <testcase name="testListGroupDao on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.399"/>
+  <testcase name="testSaveGroupDao on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.009"/>
+  <testcase name="testUpdateGroupDao on null(com.mygroup.project.dao.GroupDaoTest)" classname="com.mygroup.project.dao.GroupDaoTest" time="0.019"/>
   <system-out><![CDATA[Hibernate: alter table if exists students drop constraint if exists FKmsev1nou0j86spuk5jrv19mss
 Hibernate: drop table if exists groups cascade
 Hibernate: drop table if exists students cascade
@@ -17,6 +17,13 @@ Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_,
 Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_, group0_.title as title3_0_0_ from groups group0_ where group0_.id=?
 Hibernate: delete from groups where id=?
 Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_, group0_.title as title3_0_0_ from groups group0_ where group0_.id=?
+Hibernate: insert into groups (create_date, title) values (?, ?)
+Hibernate: insert into groups (create_date, title) values (?, ?)
+Hibernate: select group0_.id as id1_0_, group0_.create_date as create_d2_0_, group0_.title as title3_0_ from groups group0_
+Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_, group0_.title as title3_0_0_ from groups group0_ where group0_.id=?
+Hibernate: delete from groups where id=?
+Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_, group0_.title as title3_0_0_ from groups group0_ where group0_.id=?
+Hibernate: delete from groups where id=?
 Hibernate: insert into groups (create_date, title) values (?, ?)
 Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_, group0_.title as title3_0_0_ from groups group0_ where group0_.id=?
 Hibernate: select group0_.id as id1_0_0_, group0_.create_date as create_d2_0_0_, group0_.title as title3_0_0_ from groups group0_ where group0_.id=?
@@ -32,32 +39,32 @@ Hibernate: delete from groups where id=?
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Oct 15, 2021 2:13:18 AM org.hibernate.Version logVersion
+Oct 15, 2021 3:03:31 AM org.hibernate.Version logVersion
 INFO: HHH000412: Hibernate ORM core version 5.5.7.Final
-Oct 15, 2021 2:13:18 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+Oct 15, 2021 3:03:31 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
 INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-Oct 15, 2021 2:13:18 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
+Oct 15, 2021 3:03:31 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
 INFO: HHH010002: C3P0 using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/Group
-Oct 15, 2021 2:13:18 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
+Oct 15, 2021 3:03:31 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
 INFO: HHH10001001: Connection properties: {password=****, user=postgres}
-Oct 15, 2021 2:13:18 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
+Oct 15, 2021 3:03:31 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
 INFO: HHH10001003: Autocommit mode: false
 MLog initialization issue: slf4j found no binding or threatened to use its (dangerously silent) NOPLogger. We consider the slf4j library not found.
-Oct 15, 2021 2:13:18 AM com.mchange.v2.log.MLog 
+Oct 15, 2021 3:03:31 AM com.mchange.v2.log.MLog 
 INFO: MLog clients using java 1.4+ standard logging.
-Oct 15, 2021 2:13:18 AM com.mchange.v2.c3p0.C3P0Registry 
+Oct 15, 2021 3:03:32 AM com.mchange.v2.c3p0.C3P0Registry 
 INFO: Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
-Oct 15, 2021 2:13:18 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
+Oct 15, 2021 3:03:32 AM org.hibernate.c3p0.internal.C3P0ConnectionProvider configure
 INFO: HHH10001007: JDBC isolation level: <unknown>
-Oct 15, 2021 2:13:18 AM com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource 
-INFO: Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@fd371d7f [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@7f454615 [ acquireIncrement -> 1, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hge0yuakztcvxb1ssse9u|4871abb8, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 1800, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 150, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@f524f7cd [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hge0yuakztcvxb1ssse9u|687387d, jdbcUrl -> jdbc:postgresql://localhost:5432/Group, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hge0yuakztcvxb1ssse9u|41080655, numHelperThreads -> 3 ]
-Oct 15, 2021 2:13:19 AM org.hibernate.dialect.Dialect <init>
+Oct 15, 2021 3:03:32 AM com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource 
+INFO: Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@fc5c44fb [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@8b9dcf47 [ acquireIncrement -> 1, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hge0yuakzv5gyufjb2d5|77c0be95, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 1800, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 150, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@9163eca3 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hge0yuakzv5gyufjb2d5|1f6235eb, jdbcUrl -> jdbc:postgresql://localhost:5432/Group, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hge0yuakzv5gyufjb2d5|3e1c6071, numHelperThreads -> 3 ]
+Oct 15, 2021 3:03:32 AM org.hibernate.dialect.Dialect <init>
 INFO: HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-Oct 15, 2021 2:13:20 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
-INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@630763bc] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-Oct 15, 2021 2:13:20 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
-INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@15a62e13] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-Oct 15, 2021 2:13:20 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+Oct 15, 2021 3:03:33 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2f2b3039] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Oct 15, 2021 3:03:33 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@169d4e0f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Oct 15, 2021 3:03:34 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
 INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 ]]></system-err>
 </testsuite>

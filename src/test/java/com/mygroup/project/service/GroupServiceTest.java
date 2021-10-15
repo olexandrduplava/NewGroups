@@ -19,22 +19,22 @@ public class GroupServiceTest extends TestCase {
     }
 
     @Test
-    public void testSave() {
+    public void testSaveGroupService() {
     }
 
     @Test
-    public void testGet() {
+    public void testGetGroupService() {
     }
 
     @Test
-    public void testList() {
+    public void testListGroupService() {
     }
 
     @Test
-    public void testUpdate() {
+    public void testUpdateGroupService() {
     }
 
     @Test
-    public void testDelete() {
+    public void testDeleteGroupService() {
     }
 }
