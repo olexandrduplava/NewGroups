@@ -15,6 +15,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+//TODO Replace all Transactional from methods to above Repository once
+
 @Repository
 public class StudentDaoImp implements StudentDao {
 
