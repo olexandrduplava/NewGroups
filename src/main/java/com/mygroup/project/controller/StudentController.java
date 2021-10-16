@@ -66,40 +66,4 @@ public class StudentController {
         return ResponseEntity.ok().body("Student has been deleted successfully.");
     }
 
-// ===============================================================================
-//  Pavlo
-// ===============================================================================
-
-//    @PostMapping("/student/add")
-//    public ResponseEntity<?> insert(@RequestBody Student student) {
-//        System.out.println("Json " + student);
-//        student = studentService.create(student);
-//        return ResponseEntity.ok().body("New author" + student.getId());
-//    }
-//
-//    @GetMapping("/student/{id}")
-//    public ResponseEntity<Student> getById(@PathVariable long id) {
-//        Student student = studentService.readById(id);
-//        return ResponseEntity.ok().body(student);
-//    }
-//
-//    @GetMapping("/student")
-//    public ResponseEntity<List<Student>> getAll(){
-//        List<Student> students = studentService.readAll();
-//        return ResponseEntity.ok(students);
-//    }
-//
-//    @PutMapping("/student/{id}")
-//    public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Student student) {
-//        student.setId(id);
-//        studentService.update(student);
-//        return ResponseEntity.ok("Author updated successfully " + student.getId());
-//    }
-//
-//    @DeleteMapping("/student/{id}")
-//    public ResponseEntity<?> delete(@PathVariable("id") long id) {
-//        studentService.delete(new Student().setId(id));
-//        return ResponseEntity.ok("Author with id " + id + " has been deleted");
-//    }
-
 }

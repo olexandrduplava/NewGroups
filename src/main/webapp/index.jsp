@@ -13,5 +13,6 @@
   <body>
   $END$
   <h1>HELLO TOMCAT</h1>
+  <h2><a href="/Gradle___org_example___NewGroups_1_0_SNAPSHOT_war/student">test page</a></h2>
   </body>
 </html>

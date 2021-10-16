@@ -99,12 +99,22 @@ public class Student {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Student student = (Student) obj;
-        return Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName);
+        return Objects.equals(firstName, student.firstName)
+                && Objects.equals(lastName, student.lastName)
+                && Objects.equals(createDate, student.createDate)
+                && Objects.equals(averageRank, student.averageRank)
+                && Objects.equals(group, student.group);
     }
 
     @Override
     public String toString() {
-        return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+        return "Student [id=" + id
+                + ", firstName=" + firstName
+                + ", lastName=" + lastName
+                + ", create_date=" + createDate
+                + ", averageRank=" + averageRank
+                + ", group=" + group
+                + "]";
     }
 
 

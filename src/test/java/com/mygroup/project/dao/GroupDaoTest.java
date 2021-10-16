@@ -24,16 +24,32 @@ public class GroupDaoTest extends TestCase {
 
     @Test
     public void testSaveGroupDao() {
-        Group group = new Group("Group 1");
-        long id = groupDao.save(group);
-        Group group1 = groupDao.get(id);
-        assertEquals(group,group1);
-        groupDao.delete(group.getId());
+        Group expected = new Group("Group 1");
+        long id = groupDao.save(expected);
+        Group actual = groupDao.get(id);
+
+        System.out.println("=============== GroupDao Save ===============");
+        System.out.println("expected: " + expected);
+        System.out.println("actual: " + actual);
+        System.out.println("================================================");
+
+        assertEquals(expected,actual);
+        groupDao.delete(expected.getId());
+
     }
 
     @Test
     public void testGetGroupDao() {
-        //TODO Make getGroup TEST
+        Group expected = new Group("First2");
+        Group actual = groupDao.get((groupDao.save(expected)));
+        assertEquals(expected,actual);
+
+        System.out.println("=============== GroupDao Get ===============");
+        System.out.println("expected: " + expected);
+        System.out.println("actual: " + actual);
+        System.out.println("==================================================");
+
+        groupDao.delete(expected.getId());
     }
 
     @Test
@@ -48,6 +64,11 @@ public class GroupDaoTest extends TestCase {
                 .isNotEmpty()
                 .hasSizeGreaterThan(1)
                 .contains(group1, group2);
+
+        System.out.println("=============== GroupDao List ===============");
+        System.out.println("Actual List: " + actualList);
+        System.out.println("==================================================");
+
         groupDao.delete(id1);
         groupDao.delete(id2);
     }
@@ -61,6 +82,13 @@ public class GroupDaoTest extends TestCase {
         groupDao.update(id,group1);
         Group group2 = groupDao.get(id);
         assertEquals(group1, group2);
+
+        System.out.println("=============== GroupDao Update ===============");
+        System.out.println("group: " + group);
+        System.out.println("expected: " + group1);
+        System.out.println("actual: " + group2);
+        System.out.println("====================================================");
+
         groupDao.delete(id);
     }
 
@@ -68,10 +96,16 @@ public class GroupDaoTest extends TestCase {
     public void testDeleteGroupDao() {
         Group group = new Group("Group 1");
         long id = groupDao.save(group);
-        Group student1 = groupDao.get(id);
-        assertEquals(group,student1);
+
+        System.out.println("=============== GroupDao Delete ===============");
+        System.out.println("group: " + group);
+
         groupDao.delete(id);
         Group deleteStudent = groupDao.get(id);
         assertNull(deleteStudent);
+
+        Group isNull = groupDao.get(id);
+        System.out.println("groupById: " + isNull);
+        System.out.println("====================================================");
     }
 }

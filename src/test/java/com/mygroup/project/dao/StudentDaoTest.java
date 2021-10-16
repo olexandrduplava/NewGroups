@@ -26,20 +26,31 @@ public class StudentDaoTest extends TestCase {
 
     @Test
     public void testSaveStudentDao() {
-        Student student = new Student("First2","Last2");
-        long id = studentDao.save(student);
-        Student student1 = studentDao.get(id);
-        assertEquals(student,student1);
-        studentDao.delete(student.getId());
+        Student expected = new Student("First2","Last2");
+        long id = studentDao.save(expected);
+        Student actual = studentDao.get(id);
+        assertEquals(expected,actual);
+
+        System.out.println("=============== StudentDao Save ===============");
+        System.out.println("expected: " + expected);
+        System.out.println("actual: " + actual);
+        System.out.println("==================================================");
+
+        studentDao.delete(expected.getId());
     }
 
     @Test
     public void testGetStudentDao() {
-        //TODO HZ chu pravilno
-        Student student = new Student("First2","Last2");
-        Student student1 = studentDao.get((studentDao.save(student)));
-        assertEquals(student,student1);
-        studentDao.delete(student.getId());
+        Student expected = new Student("First2","Last2");
+        Student actual = studentDao.get((studentDao.save(expected)));
+        assertEquals(expected,actual);
+
+        System.out.println("=============== StudentDao Get ===============");
+        System.out.println("expected: " + expected);
+        System.out.println("actual: " + actual);
+        System.out.println("==================================================");
+
+        studentDao.delete(expected.getId());
     }
 
     @Test
@@ -54,6 +65,11 @@ public class StudentDaoTest extends TestCase {
                 .isNotEmpty()
                 .hasSizeGreaterThan(1)
                 .contains(student1, student2);
+
+        System.out.println("=============== StudentDao List ===============");
+        System.out.println("Actual List: " + actualList);
+        System.out.println("==================================================");
+
         studentDao.delete(id1);
         studentDao.delete(id2);
     }
@@ -68,6 +84,13 @@ public class StudentDaoTest extends TestCase {
         studentDao.update(id,student1);
         Student student2 = studentDao.get(id);
         assertEquals(student1, student2);
+
+        System.out.println("=============== StudentDao Update ===============");
+        System.out.println("student: " + student);
+        System.out.println("expected: " + student1);
+        System.out.println("actual: " + student2);
+        System.out.println("====================================================");
+
         studentDao.delete(id);
     }
 
@@ -75,10 +98,16 @@ public class StudentDaoTest extends TestCase {
     public void testDeleteStudentDao() {
         Student student = new Student("BLA","BLA");
         long id = studentDao.save(student);
-        Student student1 = studentDao.get(id);
-        assertEquals(student,student1);
+
+        System.out.println("=============== StudentDao Delete ===============");
+        System.out.println("student: " + student);
+
         studentDao.delete(id);
         Student deleteStudent = studentDao.get(id);
         assertNull(deleteStudent);
+
+        Student isNull = studentDao.get(id);
+        System.out.println("studentById: " + isNull);
+        System.out.println("====================================================");
     }
 }

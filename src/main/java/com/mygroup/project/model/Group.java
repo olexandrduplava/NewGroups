@@ -61,8 +61,6 @@ public class Group {
         this.students = students;
     }
 
-    //TODO Make Overriding methods
-
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -73,11 +71,14 @@ public class Group {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Group group = (Group) obj;
-        return Objects.equals(title, group.title);
+        return Objects.equals(title, group.title) && Objects.equals(createDate, group.createDate);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Group [id=" + id
+                + ", title=" + title
+                + ", create_date=" + createDate
+                + "]";
     }
 }
