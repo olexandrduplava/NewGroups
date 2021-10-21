@@ -1,7 +1,11 @@
 package com.mygroup.project.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,11 +20,13 @@ public class Group {
     @Column(name = "title")
     private String title;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
-    @OneToMany(mappedBy = "group")
-    private List<Student> students;
+    @OneToMany(mappedBy = "group",fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Student> students = new ArrayList<>();
 
     public Group() {
     }

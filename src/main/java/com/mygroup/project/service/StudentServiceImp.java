@@ -1,6 +1,5 @@
 package com.mygroup.project.service;
 
-
 import com.mygroup.project.dao.StudentDao;
 import com.mygroup.project.model.Student;
 import org.springframework.stereotype.Service;
@@ -8,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
-//TODO Replace all Transactional from methods to above Repository once
 
 @Service
 @Transactional(readOnly = true)
@@ -22,31 +19,27 @@ public class StudentServiceImp implements StudentService{
         this.studentDao = studentDao;
     }
 
-    @Transactional
     @Override
+    @Transactional
     public long save(Student student) {
-        return studentDao.save(student);
+       return studentDao.save(student);
     }
 
-    @Transactional
     @Override
     public Student get(long id) {
         return studentDao.get(id);
     }
 
-    @Transactional
     @Override
-    public List<Student> list() {
-        return studentDao.list();
+    public List<Student> getAll() {
+        return studentDao.getAll();
     }
 
-    @Transactional
     @Override
     public void update(long id, Student student) {
         studentDao.update(id, student);
     }
 
-    @Transactional
     @Override
     public void delete(long id) {
         studentDao.delete(id);

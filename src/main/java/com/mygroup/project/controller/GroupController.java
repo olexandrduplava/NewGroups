@@ -1,9 +1,7 @@
 package com.mygroup.project.controller;
 
 import com.mygroup.project.model.Group;
-import com.mygroup.project.model.Student;
 import com.mygroup.project.service.GroupService;
-import com.mygroup.project.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -45,8 +43,8 @@ public class GroupController {
 
     /*---get all group---*/
     @GetMapping("/group")
-    public ResponseEntity<List<Group>> list() {
-        List<Group> groups = groupService.list();
+    public ResponseEntity<List<Group>> getAll() {
+        List<Group> groups = groupService.getAll();
         return ResponseEntity.ok().body(groups);
     }
 

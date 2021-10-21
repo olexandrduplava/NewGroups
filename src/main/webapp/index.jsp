@@ -13,6 +13,11 @@
   <body>
   $END$
   <h1>HELLO TOMCAT</h1>
-  <h2><a href="/Gradle___org_example___NewGroups_1_0_SNAPSHOT_war/student">test page</a></h2>
+  <h2><a href="/student">Student ALL</a></h2>
+  <h2><a href="/student/1">Student 1</a></h2>
+  <h2><a href="/student/2">Student 2</a></h2>
+  <h2><a href="/group">Group ALL</a></h2>
+  <h2><a href="/group/1">Group 1</a></h2>
+  <h2><a href="/group/2">Group 2</a></h2>
   </body>
 </html>

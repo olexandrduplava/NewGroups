@@ -12,7 +12,7 @@ public interface GroupDao {
 
     Group get(long id);
 
-    List<Group> list();
+    List<Group> getAll();
 
     void update(long id, Group group);
 

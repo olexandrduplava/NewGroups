@@ -12,7 +12,7 @@ public interface StudentDao {
 
     Student get(long id);
 
-    List<Student> list();
+    List<Student> getAll();
 
     void update(long id, Student student);
 

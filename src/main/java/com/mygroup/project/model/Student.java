@@ -1,5 +1,6 @@
 package com.mygroup.project.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,8 +9,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "students")
 public class Student {
-
-    //TODO Create database tables
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +20,7 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
@@ -87,8 +87,6 @@ public class Student {
         this.group = group;
     }
 
-    //TODO Make Overriding methods
-
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -116,6 +114,5 @@ public class Student {
                 + ", group=" + group
                 + "]";
     }
-
 
 }

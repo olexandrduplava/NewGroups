@@ -14,7 +14,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-//TODO Replace all Transactional from methods to above Repository once
+//TODO REMOVE TRANSACTIONAL
 
 @Repository
 public class GroupDaoImp implements GroupDao {
@@ -26,22 +26,19 @@ public class GroupDaoImp implements GroupDao {
         this.sessionFactory = sessionFactory;
     }
 
-    @Transactional
     @Override
     public long save(Group group) {
         sessionFactory.getCurrentSession().save(group);
         return group.getId();
     }
 
-    @Transactional
     @Override
     public Group get(long id) {
         return sessionFactory.getCurrentSession().get(Group.class, id);
     }
 
-    @Transactional
     @Override
-    public List<Group> list() {
+    public List<Group> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Group> cq = cb.createQuery(Group.class);
@@ -51,7 +48,6 @@ public class GroupDaoImp implements GroupDao {
         return query.getResultList();
     }
 
-    @Transactional
     @Override
     public void update(long id, Group group) {
         Session session = sessionFactory.getCurrentSession();
@@ -62,7 +58,6 @@ public class GroupDaoImp implements GroupDao {
         session.flush();
     }
 
-    @Transactional
     @Override
     public void delete(long id) {
         Session session = sessionFactory.getCurrentSession();

@@ -7,15 +7,12 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-//TODO Replace all Transactional from methods to above Repository once
 
 @Repository
 public class StudentDaoImp implements StudentDao {
@@ -27,22 +24,19 @@ public class StudentDaoImp implements StudentDao {
         this.sessionFactory = sessionFactory;
     }
 
-    @Transactional
     @Override
     public long save(Student student) {
         sessionFactory.getCurrentSession().save(student);
         return student.getId();
     }
 
-    @Transactional
     @Override
     public Student get(long id) {
         return sessionFactory.getCurrentSession().get(Student.class, id);
     }
 
-    @Transactional
     @Override
-    public List<Student> list() {
+    public List<Student> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Student> cq = cb.createQuery(Student.class);
@@ -52,7 +46,6 @@ public class StudentDaoImp implements StudentDao {
         return query.getResultList();
     }
 
-    @Transactional
     @Override
     public void update(long id, Student student) {
         Session session = sessionFactory.getCurrentSession();
@@ -65,7 +58,6 @@ public class StudentDaoImp implements StudentDao {
         session.flush();
     }
 
-    @Transactional
     @Override
     public void delete(long id) {
         Session session = sessionFactory.getCurrentSession();
