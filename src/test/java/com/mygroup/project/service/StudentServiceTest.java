@@ -2,7 +2,6 @@ package com.mygroup.project.service;
 
 import com.mygroup.project.dao.StudentDao;
 import com.mygroup.project.model.Student;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.testng.Assert;
@@ -28,14 +27,31 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testtesttest(){
+    public void someTest(){
 
         Student student = new Student();
         student.setId(1L);
         student.setFirstName("AAA");
         student.setLastName("BBB");
         student.setAverageRank(5D);
+        /*
+        Коли викликається метод гет з любим ід в студент сервіс
+        то нам повертає значення, яке задали зверху
+         */
         when(studentService.get(anyLong())).thenReturn(student);
+
+        /*Тут ми викликали метот гет з айди, значить минулому ентыты
+          присвоївся значення ід = 1L
+        */
+        Student student2 = studentService.get(1L);
+
+        //Перевірка чи наш ентіті не налл
+        Assert.assertNotNull(student2);
+        /*
+        Перевірка чи вказане імя, яке ми вказали вище сходиться з тим,
+         Що ми передали в студент 2
+        */
+        Assert.assertEquals("AAA",student2.getFirstName());
 
     }
 

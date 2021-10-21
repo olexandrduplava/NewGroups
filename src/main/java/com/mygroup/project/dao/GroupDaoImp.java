@@ -14,8 +14,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-//TODO REMOVE TRANSACTIONAL
-
 @Repository
 public class GroupDaoImp implements GroupDao {
 
