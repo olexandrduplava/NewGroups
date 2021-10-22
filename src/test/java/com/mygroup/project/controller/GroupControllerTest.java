@@ -1,10 +1,8 @@
 package com.mygroup.project.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mygroup.project.config.AppConfig;
 import com.mygroup.project.model.Group;
-import com.mygroup.project.model.Student;
 import com.mygroup.project.service.GroupService;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +21,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -37,7 +35,7 @@ import static org.mockito.Matchers.eq;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class GroupControllerTest{
 
-    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 
     String BASE_URL = "/group";
 
@@ -121,12 +119,11 @@ public class GroupControllerTest{
 
     @Test
     public void testDelete() throws Exception {
-//        String url = BASE_URL + "/" + expectedGroup.getId();
-//        Mockito.when(groupService.delete(expectedGroup.getId())).thenReturn(expectedGroup);
-//        mockMvc.perform(MockMvcRequestBuilders.delete(url))
-//                .andExpect(content().string("Group with id:\" + id + \" has been deleted successfully."))
-//                .andExpect(status().isOk());
-//        Mockito.verify(groupService, Mockito.times(1)).delete(expectedGroup.getId());
-//
+        String url = BASE_URL + "/" + expectedGroup.getId();
+        Mockito.when(groupService.delete(expectedGroup.getId())).thenReturn(expectedGroup);
+        mockMvc.perform(MockMvcRequestBuilders.delete(url))
+                .andExpect(content().string("Group with id: "  + expectedGroup.getId() + " has been deleted successfully."))
+                .andExpect(status().isOk());
+        Mockito.verify(groupService, Mockito.times(1)).delete(expectedGroup.getId());
     }
 }

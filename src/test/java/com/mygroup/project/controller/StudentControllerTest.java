@@ -120,12 +120,11 @@ public class StudentControllerTest{
 
     @Test
     public void testDelete() throws Exception {
-//        String url = BASE_URL + "/" + expectedStudent.getId();
-//        Mockito.when(studentService.delete(expectedStudent.getId())).thenReturn(expectedStudent);
-//        mockMvc.perform(MockMvcRequestBuilders.delete(url))
-//                .andExpect(content().string("Student with id:\" + id + \" has been deleted successfully."))
-//                .andExpect(status().isOk());
-//        Mockito.verify(studentService, Mockito.times(1)).delete(expectedStudent.getId());
-//
+        String url = BASE_URL + "/" + expectedStudent.getId();
+        Mockito.when(studentService.delete(expectedStudent.getId())).thenReturn(expectedStudent);
+        mockMvc.perform(MockMvcRequestBuilders.delete(url))
+                .andExpect(content().string("Student with id: " + expectedStudent.getId() + " has been deleted successfully."))
+                .andExpect(status().isOk());
+        Mockito.verify(studentService, Mockito.times(1)).delete(expectedStudent.getId());
     }
 }

@@ -44,8 +44,9 @@ public class GroupServiceImp implements GroupService{
     }
 
     @Override
-    public void delete(long id) {
+    public Group delete(long id) {
         groupDao.delete(id);
+        return groupDao.get(id);
     }
 
 }

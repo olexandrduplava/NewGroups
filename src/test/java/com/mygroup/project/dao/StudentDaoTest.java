@@ -1,16 +1,18 @@
-// TODO How to test DAO https://howtodoinjava.com/best-practices/how-you-should-unit-test-dao-layer/
-
+// //TODO How to test DAO https://howtodoinjava.com/best-practices/how-you-should-unit-test-dao-layer/
 //package com.mygroup.project.dao;
 //
 //import com.mygroup.project.config.AppConfig;
 //import com.mygroup.project.config.WebConfig;
+//import com.mygroup.project.dao.StudentDao;
 //import com.mygroup.project.model.Student;
 //import org.junit.jupiter.api.TestInstance;
 //import org.junit.jupiter.api.extension.ExtendWith;
+//import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 //import org.springframework.test.context.ContextConfiguration;
 //import org.springframework.test.context.junit.jupiter.SpringExtension;
+//import org.springframework.transaction.annotation.Transactional;
 //import org.testng.Assert;
 //import org.testng.annotations.BeforeClass;
 //import org.testng.annotations.Test;

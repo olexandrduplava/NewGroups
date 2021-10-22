@@ -98,10 +98,6 @@ public class StudentServiceTest {
         when(studentDao.update(expectedId,student)).thenReturn(student);
         Assert.assertEquals(student,studentDao.update(expectedId,student));
         verify(studentDao,times(1)).update(expectedId,student);
-//        when(studentDao.save(student)).thenReturn(expectedId);
-//        doNothing().when(studentDao).update(expectedId, student);
-//        studentService.update(expectedId, student);
-//        verify(studentDao).update(expectedId, student);
     }
 
     @Test
