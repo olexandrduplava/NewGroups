@@ -31,6 +31,11 @@ public class Group {
     public Group() {
     }
 
+    public Group(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     public Group(String title) {
         this.title = title;
     }

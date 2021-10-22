@@ -35,14 +35,19 @@ public class StudentServiceImp implements StudentService{
         return studentDao.getAll();
     }
 
+    @Transactional
     @Override
-    public void update(long id, Student student) {
+    public Student update(long id, Student student) {
         studentDao.update(id, student);
+        return student;
     }
 
+    //TODO replaced void delete to Student delete for Controller
+    @Transactional
     @Override
     public void delete(long id) {
         studentDao.delete(id);
+        //return studentDao.get(id);
     }
 
 }

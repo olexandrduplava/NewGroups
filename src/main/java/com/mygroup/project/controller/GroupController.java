@@ -29,9 +29,9 @@ public class GroupController {
     /*---Add new group---*/
     @PostMapping("/group")
     public ResponseEntity<?> save(@RequestBody Group group) {
-        System.out.println("the json value of student is :::::: " + group);
+        System.out.println("the json value of group is :::::: " + group);
         long id = groupService.save(group);
-        return ResponseEntity.ok().body("New Student has been saved with ID:" + id);
+        return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
     }
 
     /*---Get a group by id---*/
@@ -52,14 +52,14 @@ public class GroupController {
     @PutMapping("/group/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Group group) {
         groupService.update(id, group);
-        return ResponseEntity.ok().body("Student has been updated successfully.");
+        return ResponseEntity.ok().body("Group with id: " + id + " has been updated successfully.");
     }
 
     /*---Delete a group by id---*/
     @DeleteMapping("/group/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") long id) {
         groupService.delete(id);
-        return ResponseEntity.ok().body("Group has been deleted successfully.");
+        return ResponseEntity.ok().body("Group with id: " + id + " has been deleted successfully.");
     }
 
 }

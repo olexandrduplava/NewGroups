@@ -12,7 +12,7 @@ public interface GroupService {
 
     List<Group> getAll();
 
-    void update(long id, Group group);
+    Group update(long id, Group group);
 
     void delete(long id);
 

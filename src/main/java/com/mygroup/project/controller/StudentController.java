@@ -56,14 +56,14 @@ public class StudentController {
     @PutMapping("/student/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Student student) {
         studentService.update(id, student);
-        return ResponseEntity.ok().body("Student has been updated successfully.");
+        return ResponseEntity.ok().body("Student with id: " + id + " has been updated successfully.");
     }
 
     /*---Delete a student by id---*/
     @DeleteMapping("/student/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") long id) {
         studentService.delete(id);
-        return ResponseEntity.ok().body("Student has been deleted successfully.");
+        return ResponseEntity.ok().body("Student with id:" + id + " has been deleted successfully.");
     }
 
 }

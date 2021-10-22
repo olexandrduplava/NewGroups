@@ -36,9 +36,11 @@ public class GroupServiceImp implements GroupService{
         return groupDao.getAll();
     }
 
+    @Transactional
     @Override
-    public void update(long id, Group group) {
+    public Group update(long id, Group group) {
         groupDao.update(id, group);
+        return group;
     }
 
     @Override

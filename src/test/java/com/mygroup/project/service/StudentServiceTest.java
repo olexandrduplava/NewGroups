@@ -18,6 +18,7 @@ public class StudentServiceTest {
 
     @Mock
     private StudentDao studentDao;
+
     private StudentService studentService;
 
     @BeforeMethod
@@ -51,7 +52,7 @@ public class StudentServiceTest {
         Перевірка чи вказане імя, яке ми вказали вище сходиться з тим,
          Що ми передали в студент 2
         */
-        Assert.assertEquals("AAA",student2.getFirstName());
+        Assert.assertEquals(student2.getFirstName(), "AAA");
 
     }
 
@@ -94,16 +95,19 @@ public class StudentServiceTest {
     public void testUpdateStudentService() {
         long expectedId = 1;
         Student student = new Student("Update", "Service");
-        when(studentDao.save(student)).thenReturn(expectedId);
-        doNothing().when(studentDao).update(expectedId, student);
-        studentService.update(expectedId, student);
-        verify(studentDao).update(expectedId, student);
+        when(studentDao.update(expectedId,student)).thenReturn(student);
+        Assert.assertEquals(student,studentDao.update(expectedId,student));
+        verify(studentDao,times(1)).update(expectedId,student);
+//        when(studentDao.save(student)).thenReturn(expectedId);
+//        doNothing().when(studentDao).update(expectedId, student);
+//        studentService.update(expectedId, student);
+//        verify(studentDao).update(expectedId, student);
     }
 
     @Test
     public void testDeleteStudentService() {
         long expectedId = 1;
-        Student student = new Student("Ivan", "Ivanov");
+        Student student = new Student("Delete", "Service");
         when(studentDao.save(student)).thenReturn(expectedId);
         doNothing().when(studentDao).delete(expectedId);
         studentService.delete(expectedId);
