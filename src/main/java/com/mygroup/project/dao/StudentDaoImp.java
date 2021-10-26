@@ -11,16 +11,17 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class StudentDaoImp implements StudentDao{
+public class StudentDaoImp implements StudentDao {
 
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public StudentDaoImp(SessionFactory sessionFactory){
+    public StudentDaoImp(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -36,7 +37,7 @@ public class StudentDaoImp implements StudentDao{
     }
 
     @Override
-    public List<Student> list() {
+    public List<Student> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Student> cq = cb.createQuery(Student.class);
@@ -47,7 +48,7 @@ public class StudentDaoImp implements StudentDao{
     }
 
     @Override
-    public void update(long id, Student student) {
+    public Student update(long id, Student student) {
         Session session = sessionFactory.getCurrentSession();
         Student student2 = session.byId(Student.class).load(id);
         student2.setFirstName(student.getFirstName());
@@ -56,6 +57,7 @@ public class StudentDaoImp implements StudentDao{
         student2.setAverageRank(student.getAverageRank());
         student2.setGroup(student.getGroup());
         session.flush();
+        return student;
     }
 
     @Override

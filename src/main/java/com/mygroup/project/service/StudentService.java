@@ -1,21 +1,19 @@
 package com.mygroup.project.service;
 
 import com.mygroup.project.model.Student;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface StudentService {
 
     long save(Student student);
 
     Student get(long id);
 
-    List<Student> list();
+    List<Student> getAll();
 
-    void update(long id, Student student);
+    Student update(long id, Student student);
 
-    void delete(long id);
+    Student delete(long id);
 
 }

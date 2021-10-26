@@ -7,19 +7,21 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import com.mygroup.project.model.Group;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class GroupDaoImp implements GroupDao{
+public class GroupDaoImp implements GroupDao {
 
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public GroupDaoImp(SessionFactory sessionFactory){
+    public GroupDaoImp(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -35,7 +37,7 @@ public class GroupDaoImp implements GroupDao{
     }
 
     @Override
-    public List<Group> list() {
+    public List<Group> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Group> cq = cb.createQuery(Group.class);

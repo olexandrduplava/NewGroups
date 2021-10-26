@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class GroupServiceImp implements GroupDao{
+public class GroupServiceImp implements GroupService{
 
     private final GroupDao groupDao;
 
@@ -20,8 +20,8 @@ public class GroupServiceImp implements GroupDao{
         this.groupDao = groupDao;
     }
 
-    @Transactional
     @Override
+    @Transactional
     public long save(Group group) {
         return groupDao.save(group);
     }
@@ -32,20 +32,22 @@ public class GroupServiceImp implements GroupDao{
     }
 
     @Override
-    public List<Group> list() {
-        return groupDao.list();
+    public List<Group> getAll() {
+        return groupDao.getAll();
     }
 
     @Transactional
     @Override
-    public void update(long id, Group group) {
+    public Group update(long id, Group group) {
         groupDao.update(id, group);
+        return group;
     }
 
     @Transactional
     @Override
-    public void delete(long id) {
+    public Group delete(long id) {
         groupDao.delete(id);
+        return groupDao.get(id);
     }
 
 }

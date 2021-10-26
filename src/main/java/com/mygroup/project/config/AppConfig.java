@@ -32,6 +32,7 @@ public class AppConfig {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 
         Properties props = new Properties();
+
         // Setting JDBC properties
         props.put(DRIVER, env.getProperty("postgresql.driver"));
         props.put(URL, env.getProperty("postgresql.url"));

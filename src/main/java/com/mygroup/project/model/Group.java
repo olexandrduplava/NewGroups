@@ -1,9 +1,15 @@
 package com.mygroup.project.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "groups")
@@ -16,13 +22,26 @@ public class Group {
     @Column(name = "title")
     private String title;
 
+    @JsonIgnore
+    @CreationTimestamp
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
-    @OneToMany(mappedBy = "group")
-    private List<Student> students;
+    @OneToMany(mappedBy = "group",fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Student> students = new ArrayList<>();
 
     public Group() {
+    }
+
+    public Group(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
+    public Group(String title) {
+        this.title = title;
     }
 
     public Long getId() {
@@ -64,11 +83,17 @@ public class Group {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Group group = (Group) obj;
+        return Objects.equals(title, group.title) && Objects.equals(createDate, group.createDate);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Group [id=" + id
+                + ", title=" + title
+                + ", create_date=" + createDate
+                + "]";
     }
 }

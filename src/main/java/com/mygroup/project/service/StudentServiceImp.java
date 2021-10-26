@@ -1,6 +1,5 @@
 package com.mygroup.project.service;
 
-
 import com.mygroup.project.dao.StudentDao;
 import com.mygroup.project.model.Student;
 import org.springframework.stereotype.Service;
@@ -20,10 +19,10 @@ public class StudentServiceImp implements StudentService{
         this.studentDao = studentDao;
     }
 
-    @Transactional
     @Override
+    @Transactional
     public long save(Student student) {
-        return studentDao.save(student);
+       return studentDao.save(student);
     }
 
     @Override
@@ -32,20 +31,22 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
-    public List<Student> list() {
-        return studentDao.list();
+    public List<Student> getAll() {
+        return studentDao.getAll();
     }
 
     @Transactional
     @Override
-    public void update(long id, Student student) {
+    public Student update(long id, Student student) {
         studentDao.update(id, student);
+        return student;
     }
 
     @Transactional
     @Override
-    public void delete(long id) {
+    public Student delete(long id) {
         studentDao.delete(id);
+        return studentDao.get(id);
     }
 
 }

@@ -1,14 +1,16 @@
 package com.mygroup.project.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "students")
 public class Student {
-
-    //TODO Create database tables
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +22,9 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    @JsonIgnore
+    @CreationTimestamp
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
@@ -31,6 +36,17 @@ public class Student {
     private Group group;
 
     public Student() {
+    }
+
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Student(Long id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Long getId() {
@@ -88,11 +104,25 @@ public class Student {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student student = (Student) obj;
+        return Objects.equals(firstName, student.firstName)
+                && Objects.equals(lastName, student.lastName)
+                && Objects.equals(createDate, student.createDate)
+                && Objects.equals(averageRank, student.averageRank)
+                && Objects.equals(group, student.group);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Student [id=" + id
+                + ", firstName=" + firstName
+                + ", lastName=" + lastName
+                + ", create_date=" + createDate
+                + ", averageRank=" + averageRank
+                + ", group=" + group
+                + "]";
     }
+
 }
