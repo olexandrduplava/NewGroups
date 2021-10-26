@@ -43,6 +43,7 @@ public class GroupServiceImp implements GroupService{
         return group;
     }
 
+    @Transactional
     @Override
     public Group delete(long id) {
         groupDao.delete(id);

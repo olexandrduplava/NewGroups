@@ -77,7 +77,7 @@ public class StudentControllerTest{
         mockMvc.perform(MockMvcRequestBuilders.post(url).contentType(APPLICATION_JSON_UTF8)
                         .content(requestJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("New Student has been saved with ID:" + expectedStudent.getId()));
+                .andExpect(content().string(expectedStudent.toString()));
         Mockito.verify(studentService, Mockito.times(1)).save(any(Student.class));
     }
 
@@ -114,7 +114,7 @@ public class StudentControllerTest{
         mockMvc.perform(MockMvcRequestBuilders.put(url).contentType(APPLICATION_JSON_UTF8)
                         .content(requestJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Student with id: " + expectedStudent.getId() + " has been updated successfully."));
+                .andExpect(content().string(expectedStudent.toString()));
         Mockito.verify(studentService, Mockito.times(1)).update(eq(1L), any(Student.class));
     }
 
@@ -123,7 +123,7 @@ public class StudentControllerTest{
         String url = BASE_URL + "/" + expectedStudent.getId();
         Mockito.when(studentService.delete(expectedStudent.getId())).thenReturn(expectedStudent);
         mockMvc.perform(MockMvcRequestBuilders.delete(url))
-                .andExpect(content().string("Student with id: " + expectedStudent.getId() + " has been deleted successfully."))
+                .andExpect(content().string(""))
                 .andExpect(status().isOk());
         Mockito.verify(studentService, Mockito.times(1)).delete(expectedStudent.getId());
     }

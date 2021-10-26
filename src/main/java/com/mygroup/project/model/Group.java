@@ -2,6 +2,8 @@ package com.mygroup.project.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,6 +22,8 @@ public class Group {
     @Column(name = "title")
     private String title;
 
+    @JsonIgnore
+    @CreationTimestamp
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     private LocalDateTime createDate;

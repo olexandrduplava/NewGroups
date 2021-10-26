@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mygroup.project.model.Student;
 import com.mygroup.project.service.StudentService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,16 +27,12 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-// ===============================================================================
-//  https://bushansirgur.in/angular-2-and-spring-mvc-simple-crud-application/
-// ===============================================================================
-
     /*---Add new student---*/
     @PostMapping("/student")
-    public ResponseEntity<?> save(@RequestBody Student student) {
+    public ResponseEntity<Student> save(@RequestBody Student student) {
         System.out.println("the json value of student is :::::: " + student);
-        long id = studentService.save(student);
-        return ResponseEntity.ok().body("New Student has been saved with ID:" + id);
+        studentService.save(student);
+        return ResponseEntity.ok().body(student);
     }
 
     /*---Get a student by id---*/
@@ -54,16 +51,16 @@ public class StudentController {
 
     /*---Update a student by id---*/
     @PutMapping("/student/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Student student) {
+    public ResponseEntity<Student> update(@PathVariable("id") long id, @RequestBody Student student) {
         studentService.update(id, student);
-        return ResponseEntity.ok().body("Student with id: " + id + " has been updated successfully.");
+        return ResponseEntity.ok().body(student);
     }
 
     /*---Delete a student by id---*/
     @DeleteMapping("/student/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+    public ResponseEntity<Void> delete(@PathVariable("id") long id) {
         studentService.delete(id);
-        return ResponseEntity.ok().body("Student with id: " + id + " has been deleted successfully.");
+        return ResponseEntity.noContent().build();
     }
 
 }

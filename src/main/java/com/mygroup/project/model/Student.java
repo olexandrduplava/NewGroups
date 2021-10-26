@@ -1,6 +1,8 @@
 package com.mygroup.project.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,6 +22,8 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    @JsonIgnore
+    @CreationTimestamp
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     private LocalDateTime createDate;

@@ -2,6 +2,7 @@ package com.mygroup.project.controller;
 
 import com.mygroup.project.model.Group;
 import com.mygroup.project.service.GroupService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,10 +29,10 @@ public class GroupController {
 
     /*---Add new group---*/
     @PostMapping("/group")
-    public ResponseEntity<?> save(@RequestBody Group group) {
-        System.out.println("the json value of group is :::::: " + group);
-        long id = groupService.save(group);
-        return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
+    public ResponseEntity<Group> save(@RequestBody Group group) {
+        System.err.println("the json value of student is :::::: " + group);
+        groupService.save(group);
+        return ResponseEntity.ok().body(group);
     }
 
     /*---Get a group by id---*/
@@ -50,16 +51,16 @@ public class GroupController {
 
     /*---Update a group by id---*/
     @PutMapping("/group/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Group group) {
+    public ResponseEntity<Group> update(@PathVariable("id") long id, @RequestBody Group group) {
         groupService.update(id, group);
-        return ResponseEntity.ok().body("Group with id: " + id + " has been updated successfully.");
+        return ResponseEntity.ok().body(group);
     }
 
     /*---Delete a group by id---*/
     @DeleteMapping("/group/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+    public ResponseEntity<Void> delete(@PathVariable("id") long id) {
         groupService.delete(id);
-        return ResponseEntity.ok().body("Group with id: " + id + " has been deleted successfully.");
+        return ResponseEntity.noContent().build();
     }
 
 }
