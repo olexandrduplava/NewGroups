@@ -1,6 +1,7 @@
 package com.mygroup.project.controller;
 
 import com.mygroup.project.model.Group;
+import com.mygroup.project.model.GroupDTO;
 import com.mygroup.project.service.GroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,10 @@ public class GroupController {
 
     /*---Get a group by id---*/
     @GetMapping("/group/{id}")
-    public ResponseEntity<Group> get(@PathVariable("id") long id) {
+    public ResponseEntity<GroupDTO> get(@PathVariable("id") long id) {
         Group group = groupService.get(id);
-        return ResponseEntity.ok().body(group);
+        //return ResponseEntity.ok().body(group);
+        return ResponseEntity.ok().body(GroupDTO.toGroupDTO(group));
     }
 
     /*---get all group---*/
