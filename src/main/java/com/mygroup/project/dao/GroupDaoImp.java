@@ -38,14 +38,14 @@ public class GroupDaoImp implements GroupDao {
     }
 
     @Override
-    public Set<Group> getAll() {
+    public List<Group> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Group> cq = cb.createQuery(Group.class);
         Root<Group> root = cq.from(Group.class);
         cq.select(root);
         Query<Group> query = session.createQuery(cq);
-        return (Set<Group>) query.getResultList();
+        return query.getResultList();
     }
 
     @Override

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Set;
 
 @CrossOrigin(origins = "*")
@@ -44,8 +45,8 @@ public class GroupController {
 
     /*---get all group---*/
     @GetMapping("/group")
-    public ResponseEntity<Set<Group>> getAll() {
-        Set<Group> groups = groupService.getAll();
+    public ResponseEntity<List<Group>> getAll() {
+        List<Group> groups = groupService.getAll();
         return ResponseEntity.ok().body(groups);
     }
 

@@ -38,14 +38,14 @@ public class StudentDaoImp implements StudentDao {
     }
 
     @Override
-    public Set<Student> getAll() {
+    public List<Student> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Student> cq = cb.createQuery(Student.class);
         Root<Student> root = cq.from(Student.class);
         cq.select(root);
         Query<Student> query = session.createQuery(cq);
-        return (Set<Student>) query.getResultList();
+        return query.getResultList();
     }
 
     @Override

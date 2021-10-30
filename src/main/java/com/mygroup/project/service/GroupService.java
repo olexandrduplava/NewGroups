@@ -11,7 +11,7 @@ public interface GroupService {
 
     Group get(long id);
 
-    Set<Group> getAll();
+    List<Group> getAll();
 
     Group update(long id, Group group);
 

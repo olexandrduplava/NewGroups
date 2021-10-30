@@ -33,7 +33,7 @@ public class GroupServiceImp implements GroupService{
     }
 
     @Override
-    public Set<Group> getAll() {
+    public List<Group> getAll() {
         return groupDao.getAll();
     }
 

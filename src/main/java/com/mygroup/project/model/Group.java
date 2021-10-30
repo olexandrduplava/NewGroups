@@ -27,8 +27,8 @@ public class Group implements Serializable {
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
-    @OneToMany(mappedBy = "group")
     @JsonIgnore
+    @OneToMany(mappedBy = "group",fetch = FetchType.EAGER)
     private List<Student> students = new ArrayList<>();
 
     public Group() {

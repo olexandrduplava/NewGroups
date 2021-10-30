@@ -32,7 +32,7 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
-    public Set<Student> getAll() {
+    public List<Student> getAll() {
         return studentDao.getAll();
     }
 
