@@ -1,5 +1,6 @@
 package com.mygroup.project.dao;
 
+import com.mygroup.project.model.Group;
 import com.mygroup.project.model.Student;
 
 import java.util.List;
@@ -27,9 +28,9 @@ public class StudentDaoImp implements StudentDao {
     }
 
     @Override
-    public long save(Student student) {
+    public Student save(Student student) {
         sessionFactory.getCurrentSession().save(student);
-        return student.getId();
+        return sessionFactory.getCurrentSession().get(Student.class, student.getId());
     }
 
     @Override

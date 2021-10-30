@@ -23,8 +23,9 @@ public class GroupServiceImp implements GroupService{
 
     @Override
     @Transactional
-    public long save(Group group) {
-        return groupDao.save(group);
+    public Group save(Group group) {
+        groupDao.save(group);
+        return group;
     }
 
     @Override
@@ -46,9 +47,8 @@ public class GroupServiceImp implements GroupService{
 
     @Transactional
     @Override
-    public Group delete(long id) {
+    public void delete(long id) {
         groupDao.delete(id);
-        return groupDao.get(id);
     }
 
 }

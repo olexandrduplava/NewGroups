@@ -82,9 +82,9 @@ public class StudentServiceTest {
         Student student1 = new Student("List1", "Student");
         Student student2 = new Student("List2", "Student");
 //        Set<Student> actualList = Arrays.asList(student1, student2);
-        Set<Student> actualList = Set.of(student1,student2);
+        List<Student> actualList = Arrays.asList(student1,student2);
         when(studentDao.getAll()).thenReturn(actualList);
-        Set<Student> expectedList = studentService.getAll();
+        List<Student> expectedList = studentService.getAll();
         verify(studentDao).getAll();
         assertThat(expectedList)
                 .isNotNull()

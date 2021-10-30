@@ -1,7 +1,6 @@
 package com.mygroup.project.dao;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -27,9 +26,9 @@ public class GroupDaoImp implements GroupDao {
     }
 
     @Override
-    public long save(Group group) {
+    public Group save(Group group) {
         sessionFactory.getCurrentSession().save(group);
-        return group.getId();
+        return  sessionFactory.getCurrentSession().get(Group.class, group.getId());
     }
 
     @Override

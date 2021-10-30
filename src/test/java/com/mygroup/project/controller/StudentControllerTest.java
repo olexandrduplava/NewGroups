@@ -105,7 +105,7 @@ public class StudentControllerTest{
         String url = BASE_URL;
         Student student2 = new Student(2L,"TEST2","TEST2");
 //        Mockito.when(studentService.getAll()).thenReturn(Arrays.asList(expectedStudent, student2));
-        Mockito.when(studentService.getAll()).thenReturn(Set.of(expectedStudent, student2));
+        Mockito.when(studentService.getAll()).thenReturn(Arrays.asList(expectedStudent, student2));
         mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(content().string(
                         "[{\"id\":1,\"firstName\":\"TEST\",\"lastName\":\"TEST\",\"createDate\":null,\"averageRank\":null,\"group\":null}," +

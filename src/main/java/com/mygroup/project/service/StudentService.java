@@ -7,7 +7,7 @@ import java.util.Set;
 
 public interface StudentService {
 
-    long save(Student student);
+    Student save(Student student);
 
     Student get(long id);
 
@@ -15,6 +15,6 @@ public interface StudentService {
 
     Student update(long id, Student student);
 
-    Student delete(long id);
+    void delete(long id);
 
 }

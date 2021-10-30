@@ -55,9 +55,9 @@ public class GroupServiceTest{
         Group group3 = new Group("Group 3");
         Group group4 = new Group("Group 4");
 //        Set<Group> actualList = Arrays.asList(group1,group2,group3,group4);
-        Set<Group> actualList = Set.of(group1,group2,group3,group4);
+        List<Group> actualList = Arrays.asList(group1,group2,group3,group4);
         when(groupDao.getAll()).thenReturn(actualList);
-        Set<Group> expectedList = groupService.getAll();
+        List<Group> expectedList = groupService.getAll();
         verify(groupDao).getAll();
         assertThat(expectedList)
                 .isNotNull()

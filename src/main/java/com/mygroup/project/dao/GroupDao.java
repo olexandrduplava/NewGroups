@@ -4,12 +4,11 @@ import com.mygroup.project.model.Group;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public interface GroupDao {
 
-    long save(Group group);
+    Group save(Group group);
 
     Group get(long id);
 

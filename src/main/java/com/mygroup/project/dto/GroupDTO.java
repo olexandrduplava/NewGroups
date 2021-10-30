@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GroupDTO {
 
-    private long id;
+    private Long id;
 
     private String title;
 

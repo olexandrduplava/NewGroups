@@ -9,7 +9,7 @@ import java.util.Set;
 @Repository
 public interface StudentDao {
 
-    long save(Student student);
+    Student save(Student student);
 
     Student get(long id);
 
