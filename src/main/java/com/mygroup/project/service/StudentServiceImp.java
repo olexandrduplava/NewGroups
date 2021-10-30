@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional(readOnly = true)
@@ -31,7 +32,7 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
-    public List<Student> getAll() {
+    public Set<Student> getAll() {
         return studentDao.getAll();
     }
 

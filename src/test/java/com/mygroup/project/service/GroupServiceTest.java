@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -53,9 +54,10 @@ public class GroupServiceTest{
         Group group2 = new Group("Group 2");
         Group group3 = new Group("Group 3");
         Group group4 = new Group("Group 4");
-        List<Group> actualList = Arrays.asList(group1,group2,group3,group4);
+//        Set<Group> actualList = Arrays.asList(group1,group2,group3,group4);
+        Set<Group> actualList = Set.of(group1,group2,group3,group4);
         when(groupDao.getAll()).thenReturn(actualList);
-        List<Group> expectedList = groupService.getAll();
+        Set<Group> expectedList = groupService.getAll();
         verify(groupDao).getAll();
         assertThat(expectedList)
                 .isNotNull()

@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Set;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -99,7 +100,8 @@ public class GroupControllerTest{
 
         String url = BASE_URL;
         Group group2 = new Group(2L,"TEST2");
-        Mockito.when(groupService.getAll()).thenReturn(Arrays.asList(expectedGroup, group2));
+//        Mockito.when(groupService.getAll()).thenReturn(Arrays.asList(expectedGroup, group2));
+        Mockito.when(groupService.getAll()).thenReturn(Set.of(expectedGroup, group2));
         mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(content().string(
                         "[{\"id\":1,\"title\":\"TEST\",\"createDate\":null}," +

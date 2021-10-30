@@ -3,6 +3,7 @@ package com.mygroup.project.dao;
 import com.mygroup.project.model.Student;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -37,14 +38,14 @@ public class StudentDaoImp implements StudentDao {
     }
 
     @Override
-    public List<Student> getAll() {
+    public Set<Student> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Student> cq = cb.createQuery(Student.class);
         Root<Student> root = cq.from(Student.class);
         cq.select(root);
         Query<Student> query = session.createQuery(cq);
-        return query.getResultList();
+        return (Set<Student>) query.getResultList();
     }
 
     @Override

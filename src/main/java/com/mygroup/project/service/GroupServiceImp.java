@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional(readOnly = true)
@@ -32,7 +33,7 @@ public class GroupServiceImp implements GroupService{
     }
 
     @Override
-    public List<Group> getAll() {
+    public Set<Group> getAll() {
         return groupDao.getAll();
     }
 

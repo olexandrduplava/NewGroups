@@ -4,6 +4,7 @@ import com.mygroup.project.model.Group;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface GroupDao {
@@ -12,7 +13,7 @@ public interface GroupDao {
 
     Group get(long id);
 
-    List<Group> getAll();
+    Set<Group> getAll();
 
     void update(long id, Group group);
 

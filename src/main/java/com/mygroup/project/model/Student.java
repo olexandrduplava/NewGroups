@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,23 +95,6 @@ public class Student {
 
     public void setGroup(Group group) {
         this.group = group;
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Student student = (Student) obj;
-        return Objects.equals(firstName, student.firstName)
-                && Objects.equals(lastName, student.lastName)
-                && Objects.equals(createDate, student.createDate)
-                && Objects.equals(averageRank, student.averageRank)
-                && Objects.equals(group, student.group);
     }
 
     @Override

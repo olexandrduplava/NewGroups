@@ -1,4 +1,7 @@
-package com.mygroup.project.model;
+package com.mygroup.project.dto;
+
+import com.mygroup.project.model.Group;
+import com.mygroup.project.model.Student;
 
 import java.time.LocalDateTime;
 import java.util.List;

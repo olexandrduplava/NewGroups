@@ -1,7 +1,7 @@
 package com.mygroup.project.controller;
 
 import com.mygroup.project.model.Group;
-import com.mygroup.project.model.GroupDTO;
+import com.mygroup.project.dto.GroupDTO;
 import com.mygroup.project.service.GroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Set;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -31,7 +31,6 @@ public class GroupController {
     /*---Add new group---*/
     @PostMapping("/group")
     public ResponseEntity<Group> save(@RequestBody Group group) {
-        System.err.println("the json value of student is :::::: " + group);
         groupService.save(group);
         return ResponseEntity.ok().body(group);
     }
@@ -40,14 +39,13 @@ public class GroupController {
     @GetMapping("/group/{id}")
     public ResponseEntity<GroupDTO> get(@PathVariable("id") long id) {
         Group group = groupService.get(id);
-        //return ResponseEntity.ok().body(group);
         return ResponseEntity.ok().body(GroupDTO.toGroupDTO(group));
     }
 
     /*---get all group---*/
     @GetMapping("/group")
-    public ResponseEntity<List<Group>> getAll() {
-        List<Group> groups = groupService.getAll();
+    public ResponseEntity<Set<Group>> getAll() {
+        Set<Group> groups = groupService.getAll();
         return ResponseEntity.ok().body(groups);
     }
 

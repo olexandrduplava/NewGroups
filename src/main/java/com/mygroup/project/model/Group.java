@@ -3,17 +3,16 @@ package com.mygroup.project.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "groups")
-public class Group {
+public class Group implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +27,7 @@ public class Group {
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
-    @OneToMany(mappedBy = "group",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "group")
     @JsonIgnore
     private List<Student> students = new ArrayList<>();
 
@@ -76,18 +75,6 @@ public class Group {
         this.students = students;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Group group = (Group) obj;
-        return Objects.equals(title, group.title) && Objects.equals(createDate, group.createDate);
-    }
 
     @Override
     public String toString() {

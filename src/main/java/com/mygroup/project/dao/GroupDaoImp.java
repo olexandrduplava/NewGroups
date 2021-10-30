@@ -1,6 +1,7 @@
 package com.mygroup.project.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -37,14 +38,14 @@ public class GroupDaoImp implements GroupDao {
     }
 
     @Override
-    public List<Group> getAll() {
+    public Set<Group> getAll() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Group> cq = cb.createQuery(Group.class);
         Root<Group> root = cq.from(Group.class);
         cq.select(root);
         Query<Group> query = session.createQuery(cq);
-        return query.getResultList();
+        return (Set<Group>) query.getResultList();
     }
 
     @Override

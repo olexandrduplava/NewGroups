@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -80,9 +81,10 @@ public class StudentServiceTest {
     public void testListStudentService() {
         Student student1 = new Student("List1", "Student");
         Student student2 = new Student("List2", "Student");
-        List<Student> actualList = Arrays.asList(student1, student2);
+//        Set<Student> actualList = Arrays.asList(student1, student2);
+        Set<Student> actualList = Set.of(student1,student2);
         when(studentDao.getAll()).thenReturn(actualList);
-        List<Student> expectedList = studentService.getAll();
+        Set<Student> expectedList = studentService.getAll();
         verify(studentDao).getAll();
         assertThat(expectedList)
                 .isNotNull()

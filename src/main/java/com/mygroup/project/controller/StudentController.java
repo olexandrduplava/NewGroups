@@ -1,6 +1,7 @@
 package com.mygroup.project.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import com.mygroup.project.model.Student;
 import com.mygroup.project.service.StudentService;
@@ -30,7 +31,6 @@ public class StudentController {
     /*---Add new student---*/
     @PostMapping("/student")
     public ResponseEntity<Student> save(@RequestBody Student student) {
-        System.out.println("the json value of student is :::::: " + student);
         studentService.save(student);
         return ResponseEntity.ok().body(student);
     }
@@ -44,8 +44,8 @@ public class StudentController {
 
     /*---get all student---*/
     @GetMapping("/student")
-    public ResponseEntity<List<Student>> getAll() {
-        List<Student> students = studentService.getAll();
+    public ResponseEntity<Set<Student>> getAll() {
+        Set<Student> students = studentService.getAll();
         return ResponseEntity.ok().body(students);
     }
 

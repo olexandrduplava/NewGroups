@@ -1,8 +1,7 @@
 package com.mygroup.project.service;
 
 import com.mygroup.project.model.Student;
-
-import java.util.List;
+import java.util.Set;
 
 public interface StudentService {
 
@@ -10,7 +9,7 @@ public interface StudentService {
 
     Student get(long id);
 
-    List<Student> getAll();
+    Set<Student> getAll();
 
     Student update(long id, Student student);
 
